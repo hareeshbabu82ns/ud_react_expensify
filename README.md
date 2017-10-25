@@ -4,7 +4,7 @@
 - yarn init -y
 - yarn add babel-preset-react babel-preset-env
 - yarn add babel-core babel-loader
-- yarn add react react-dom
+- yarn add react react-dom react-router-dom
 - yarn add webpack webpack-dev-server
 - yarn add -D babel-preset-stage-2
 
