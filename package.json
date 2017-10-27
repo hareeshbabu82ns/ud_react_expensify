@@ -19,8 +19,11 @@
     "serve": "webpack-dev-server"
   },
   "dependencies": {
+    "moment": "^2.19.1",
     "normalize.css": "^7.0.0",
     "react": "^16.0.0",
+    "react-addons-shallow-compare": "^15.6.2",
+    "react-dates": "^14.1.0",
     "react-dom": "^16.0.0",
     "react-modal": "^3.0.4",
     "react-redux": "^5.0.6",
