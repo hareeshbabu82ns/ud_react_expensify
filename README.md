@@ -12,6 +12,10 @@
 - css-loader style-loader
 - sass-loader node-sass
 - normalize.css
+- yarn redux react-redux
+- uuid - to generate unique ID
+- yarn add -D babel-plugin-transform-object-rest-spread for Object Spread support
+- moment react-dates react-addons-shallow-compare
 
 ## webpcak build
 yarn build
