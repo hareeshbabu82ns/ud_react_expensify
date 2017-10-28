@@ -22,3 +22,15 @@
 yarn build
 ## webpack dev server
 yarn serve
+
+## Heroku setup
+* download & install Heroku CLI
+* $> heroku --version
+* $> heroku login
+* $> heroku create <app-name>
+  * which will add new "git remote" named heroku
+  * check the same with $> git remote -v
+* in package.json
+  * add "start" script
+  * add "heroku-postbuild" to run build commands
+* with the express server user process.env.PORT to start

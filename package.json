@@ -17,10 +17,13 @@
   "scripts": {
     "build:dev": "webpack",
     "build:prod": "webpack -p --env=production",
-    "serve": "webpack-dev-server",
-    "serve:prod": "live-server public/"
+    "serve:dev": "webpack-dev-server",
+    "serve:prod": "live-server public/",
+    "start": "node server/app.js",
+    "heroku-postbuild": "yarn run build:prod"
   },
   "dependencies": {
+    "express": "^4.16.2",
     "live-server": "^1.2.0",
     "moment": "^2.19.1",
     "normalize.css": "^7.0.0",
