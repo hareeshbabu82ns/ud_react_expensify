@@ -15,10 +15,13 @@
   },
   "homepage": "https://github.com/hareeshbabu82ns/ud_react_expensify#readme",
   "scripts": {
-    "build": "webpack",
-    "serve": "webpack-dev-server"
+    "build:dev": "webpack",
+    "build:prod": "webpack -p --env=production",
+    "serve": "webpack-dev-server",
+    "serve:prod": "live-server public/"
   },
   "dependencies": {
+    "live-server": "^1.2.0",
     "moment": "^2.19.1",
     "normalize.css": "^7.0.0",
     "react": "^16.0.0",
