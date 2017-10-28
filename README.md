@@ -34,3 +34,4 @@ yarn serve
   * add "start" script
   * add "heroku-postbuild" to run build commands
 * with the express server user process.env.PORT to start
+* finally push changes first to GitHub and to Heroku with "git push heroku master"
