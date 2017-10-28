@@ -1,8 +1,10 @@
 const path = require("path");
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = (env, argv) => {
   // const isProduciton = process.argv.find(arg => arg === "-p");
   const isProduciton = env === "production";
+  const CSSExtract = new ExtractTextPlugin("styles.css");
   return {
     entry: "./src/app.js",
     output: {
@@ -18,11 +20,17 @@ module.exports = (env, argv) => {
         },
         {
           test: /\.s?css$/,
-          use: ["style-loader", "css-loader", "sass-loader"]
+          use: CSSExtract.extract({
+            use: [
+              { loader: "css-loader", options: { sourceMap: true } },
+              { loader: "sass-loader", options: { sourceMap: true } }
+            ]
+          })
         }
       ]
     },
-    devtool: isProduciton ? "source-map" : "cheap-module-eval-source-map",
+    plugins: [CSSExtract],
+    devtool: isProduciton ? "source-map" : "inline-source-map",
     devServer: {
       contentBase: path.join(__dirname, "public"),
       historyApiFallback: true

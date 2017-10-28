@@ -16,6 +16,7 @@
 - uuid - to generate unique ID
 - yarn add -D babel-plugin-transform-object-rest-spread for Object Spread support
 - moment react-dates react-addons-shallow-compare
+- extract-text-webpack-plugin - to extract CSS/SCC text and place in it own file (useful to have seperate files for JS and CSS)
 
 ## webpcak build
 yarn build
