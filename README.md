@@ -18,6 +18,8 @@
 - moment react-dates react-addons-shallow-compare
 - extract-text-webpack-plugin - to extract CSS/SCC text and place in it own file (useful to have seperate files for JS and CSS)
 
+- yarn add firebase
+
 ## webpcak build
 yarn build
 ## webpack dev server
