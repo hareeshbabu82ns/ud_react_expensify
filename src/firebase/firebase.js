@@ -12,7 +12,9 @@ firebase.initializeApp(config);
 
 const databaseRef = firebase.database().ref("udemy-expensify");
 
-export { firebase, databaseRef as default };
+const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
+
+export { firebase, googleAuthProvider, databaseRef as default };
 
 // const expensesRef = databaseRef.child("expenses");
 

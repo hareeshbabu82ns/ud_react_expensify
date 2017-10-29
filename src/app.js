@@ -9,7 +9,7 @@ import configureStore from "./store/configureStore";
 import { startFetchExpenses } from "./actions/expenses";
 import { setTextFilter } from "./actions/filters";
 import getVisibleExpenses from "./selectors/expenses";
-import "./firebase/firebase";
+import { firebase } from "./firebase/firebase";
 
 import "normalize.css/normalize.css";
 import "./styles/styles.scss";
@@ -73,3 +73,7 @@ ReactDOM.render(<p>Loading...</p>, document.getElementById("app"));
 store
   .dispatch(startFetchExpenses())
   .then(() => ReactDOM.render(jsx, document.getElementById("app")));
+
+firebase.auth().onAuthStateChanged(user => {
+  console.log(user);
+});
