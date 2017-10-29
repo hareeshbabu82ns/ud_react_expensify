@@ -3,10 +3,12 @@ import { connect } from "react-redux";
 
 import ExpenseListItem from "./ExpenseListItem";
 import ExpenseListFilters from "./ExpenseListFilters";
+import ExpenseListHeader from "./ExpenseListHeader";
 import filterExpenses from "../selectors/expenses";
 
 const ExpenseList = props => (
   <div>
+    <ExpenseListHeader />
     <ExpenseListFilters />
     <h2>Expense List</h2>
     {props.expenses.map(expense => (
