@@ -39,3 +39,20 @@ yarn serve
 * with the express server user process.env.PORT to start
 * finally push changes first to GitHub and to Heroku with "git push heroku master"
 * check the logs with "$> heroku logs"
+
+## Dev/Prod environment
+* setting up Dev and Prod environment variables
+* to avoid Firebase Auth Keys to be exposed to Browser or commiting to GitHub
+* move firebase keys to file .env.development
+  * FIREBASE_API_KEY=<___>
+  * FIREBASE_AUTH_DOMAIN=<___>
+  * FIREBASE_DATABASE_URL=<___>
+  * FIREBASE_PROJECT_ID=<___>
+  * FIREBASE_STORAGE_BUCKET=<___>
+  * FIREBASE_MESSAGING_SENDER_ID=<___>
+* pass these to webpack.DefinePlugin in webpack.config.js to set as environment variables
+* for production (heroku), set the environment variables as follows (from Heroku CLI)
+  * heroku config - will get all set variables  
+  * heroku config:set KEY=VALUE
+  * heroku config:unset KEY
+  * Note - for multiples use space as seperator
