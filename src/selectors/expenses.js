@@ -25,3 +25,9 @@ export default (expenses, { text, sortBy, startDate, endDate }) => {
       }
     });
 };
+
+export const getExpensesTotal = expenses => {
+  return expenses
+    .map(e => e.amount)
+    .reduce((amtPrev, amtCurr) => amtPrev + amtCurr);
+};
