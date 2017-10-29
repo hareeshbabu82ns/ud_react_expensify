@@ -29,12 +29,31 @@ export const removeExpense = ({ id = "" } = {}) => ({
   type: "REMOVE_EXPENSE",
   id
 });
+export const startRemoveExpense = ({ id = "" }) => {
+  return dispatch => {
+    return databaseRef
+      .child("expenses")
+      .child(id)
+      .remove()
+      .then(() => {
+        dispatch(removeExpense({ id }));
+      });
+  };
+};
 
 export const editExpense = (id, payload) => ({
   type: "EDIT_EXPENSE",
   id,
   payload
 });
+export const startEditExpense = (id, payload) => {
+  return dispatch => {
+    return databaseRef
+      .child(`expenses/${id}`)
+      .update(payload)
+      .then(() => dispatch(editExpense(id, payload)));
+  };
+};
 
 export const setExpenses = (expenses = []) => ({
   type: "SET_EXPENSES",
