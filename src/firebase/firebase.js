@@ -12,17 +12,20 @@ firebase.initializeApp(config);
 
 const databaseRef = firebase.database().ref("udemy-expensify");
 
-const expensesRef = databaseRef.child("expenses");
+export { firebase, databaseRef as default };
 
-expensesRef.on("child_removed", snapshot => {
-  console.log(snapshot.key);
-});
-expensesRef.on("child_changed", snapshot => {
-  console.log(snapshot.key, snapshot.val());
-});
-expensesRef.on("child_added", snapshot => {
-  console.log(snapshot.key, snapshot.val());
-});
+// const expensesRef = databaseRef.child("expenses");
+
+// // subscription on firebse data
+// expensesRef.on("child_removed", snapshot => {
+//   console.log(snapshot.key);
+// });
+// expensesRef.on("child_changed", snapshot => {
+//   console.log(snapshot.key, snapshot.val());
+// });
+// expensesRef.on("child_added", snapshot => {
+//   console.log(snapshot.key, snapshot.val());
+// });
 
 // //subscribe for data changes
 // expensesRef.on("value", snapshot => {

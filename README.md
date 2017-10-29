@@ -19,6 +19,7 @@
 - extract-text-webpack-plugin - to extract CSS/SCC text and place in it own file (useful to have seperate files for JS and CSS)
 
 - yarn add firebase
+- redux-thunk - to allow redux to work with async functions
 
 ## webpcak build
 yarn build
