@@ -90,7 +90,7 @@ firebase.auth().onAuthStateChanged(user => {
     });
   } else {
     //not loggedin
-    stor.dispatch(logout());
+    store.dispatch(logout());
     renderApp();
     history.push("/");
   }
