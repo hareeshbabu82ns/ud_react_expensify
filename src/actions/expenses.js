@@ -8,16 +8,17 @@ export const addExpense = (expense = {}) => ({
 });
 
 export const startAddExpense = (expenseData = {}) => {
-  return dispatch => {
+  return (dispatch, getState) => {
     const {
       description = "",
       note = "",
       amount = 0,
       createdAt = Date.now()
     } = expenseData;
+    const uid = getState().auth.uid;
     const expense = { description, note, amount, createdAt };
     databaseRef
-      .child("expenses")
+      .child(`users/${uid}/expenses`)
       .push(expense)
       .then(ref => {
         dispatch(addExpense({ id: ref.key, ...expense }));
@@ -30,9 +31,10 @@ export const removeExpense = ({ id = "" } = {}) => ({
   id
 });
 export const startRemoveExpense = ({ id = "" }) => {
-  return dispatch => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
     return databaseRef
-      .child("expenses")
+      .child(`users/${uid}/expenses`)
       .child(id)
       .remove()
       .then(() => {
@@ -47,9 +49,10 @@ export const editExpense = (id, payload) => ({
   payload
 });
 export const startEditExpense = (id, payload) => {
-  return dispatch => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
     return databaseRef
-      .child(`expenses/${id}`)
+      .child(`users/${uid}/expenses/${id}`)
       .update(payload)
       .then(() => dispatch(editExpense(id, payload)));
   };
@@ -61,9 +64,10 @@ export const setExpenses = (expenses = []) => ({
 });
 
 export const startFetchExpenses = () => {
-  return dispatch => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
     return databaseRef
-      .child("expenses")
+      .child(`users/${uid}/expenses`)
       .once("value")
       .then(snapshot => {
         const expenses = [];
