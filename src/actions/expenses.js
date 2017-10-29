@@ -20,7 +20,6 @@ export const startAddExpense = (expenseData = {}) => {
       .child("expenses")
       .push(expense)
       .then(ref => {
-        console.log(ref);
         dispatch(addExpense({ id: ref.key, ...expense }));
       });
   };
@@ -36,3 +35,23 @@ export const editExpense = (id, payload) => ({
   id,
   payload
 });
+
+export const setExpenses = (expenses = []) => ({
+  type: "SET_EXPENSES",
+  expenses
+});
+
+export const startFetchExpenses = () => {
+  return dispatch => {
+    return databaseRef
+      .child("expenses")
+      .once("value")
+      .then(snapshot => {
+        const expenses = [];
+        snapshot.forEach(expense => {
+          expenses.push({ id: expense.key, ...expense.val() });
+        });
+        dispatch(setExpenses(expenses));
+      });
+  };
+};
