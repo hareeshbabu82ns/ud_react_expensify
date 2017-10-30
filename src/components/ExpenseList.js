@@ -10,10 +10,12 @@ const ExpenseList = props => (
   <div>
     <ExpenseListHeader />
     <ExpenseListFilters />
-    <h2>Expense List</h2>
-    {props.expenses.map(expense => (
-      <ExpenseListItem key={expense.id} {...expense} />
-    ))}
+    <h4>Expense List</h4>
+    <div className="list-group">
+      {props.expenses.map(expense => (
+        <ExpenseListItem key={expense.id} {...expense} />
+      ))}
+    </div>
   </div>
 );
 

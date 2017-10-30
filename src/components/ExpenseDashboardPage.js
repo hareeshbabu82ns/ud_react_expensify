@@ -3,9 +3,9 @@ import React from "react";
 import ExpenseList from "./ExpenseList";
 
 const ExpenseDashboardPage = () => (
-  <div>
+  <main role="main" className="container">
     <ExpenseList />
-  </div>
+  </main>
 );
 
 export default ExpenseDashboardPage;

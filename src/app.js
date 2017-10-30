@@ -2,6 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import moment from "moment";
+import "jquery";
+import "popper.js";
+import "bootstrap";
 
 import AppRouter, { history } from "./routers/AppRouter";
 

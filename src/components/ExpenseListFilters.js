@@ -23,33 +23,41 @@ class ExpenseListFilters extends React.Component {
   };
   render() {
     return (
-      <div>
-        <input
-          type="text"
-          value={this.props.filters.text}
-          onChange={e => this.props.dispatch(setTextFilter(e.target.value))}
-        />
-        <select
-          value={this.props.filters.sortBy}
-          onChange={e =>
-            this.props.dispatch(
-              e.target.value === "date" ? sortByDate() : sortByAmount()
-            )}
-        >
-          <option value="date">Date</option>
-          <option value="amount">Amount</option>
-        </select>
-        <DateRangePicker
-          startDate={this.props.filters.startDate}
-          endDate={this.props.filters.endDate}
-          onDatesChange={this.onDatesChange}
-          focusedInput={this.state.dateFocused}
-          onFocusChange={this.onFocusChange}
-          numberOfMonths={1}
-          showClearDates={true}
-          isOutsideRange={() => false}
-        />
-      </div>
+      <form className="form-inline" onSubmit={e => e.preventDefault()}>
+        <div className="form-group mx-sm-3">
+          <input
+            type="text"
+            className="form-control"
+            value={this.props.filters.text}
+            onChange={e => this.props.dispatch(setTextFilter(e.target.value))}
+          />
+        </div>
+        <div className="form-group mx-sm-3">
+          <select
+            value={this.props.filters.sortBy}
+            className="form-control"
+            onChange={e =>
+              this.props.dispatch(
+                e.target.value === "date" ? sortByDate() : sortByAmount()
+              )}
+          >
+            <option value="date">Date</option>
+            <option value="amount">Amount</option>
+          </select>
+        </div>
+        <div className="form-group">
+          <DateRangePicker
+            startDate={this.props.filters.startDate}
+            endDate={this.props.filters.endDate}
+            onDatesChange={this.onDatesChange}
+            focusedInput={this.state.dateFocused}
+            onFocusChange={this.onFocusChange}
+            numberOfMonths={1}
+            showClearDates={true}
+            isOutsideRange={() => false}
+          />
+        </div>
+      </form>
     );
   }
 }

@@ -6,12 +6,13 @@ import filterExpenses, { getExpensesTotal } from "../selectors/expenses";
 
 const ExpenseListHeader = ({ expensesCount, expensesTotal }) => {
   return (
-    <div>
-      <p>
-        Displaying {expensesCount} Expense(s), Totalling{" "}
+    <h6>
+      Displaying <span className="text-primary">{expensesCount}</span>{" "}
+      Expense(s), Totalling{" "}
+      <span className="text-primary">
         {numeral(expensesTotal / 100).format("$0,0.00")}
-      </p>
-    </div>
+      </span>
+    </h6>
   );
 };
 const mapStateToProps = store => {

@@ -38,6 +38,12 @@ module.exports = (env, argv) => {
     },
     plugins: [
       CSSExtract,
+      new webpack.ProvidePlugin({
+        $: "jquery",
+        jQuery: "jquery",
+        "window.jQuery": "jquery",
+        Popper: ["popper.js", "default"]
+      }),
       new webpack.DefinePlugin({
         "process.env.FIREBASE_API_KEY": JSON.stringify(
           process.env.FIREBASE_API_KEY

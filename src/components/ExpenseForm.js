@@ -56,36 +56,49 @@ class ExpenseForm extends React.Component {
       <div>
         {this.state.error && <p>{this.state.error}</p>}
         <form onSubmit={this.onSubmit}>
-          <input
-            type="text"
-            placeholder="Description"
-            autoFocus
-            value={this.state.description}
-            onChange={this.onElementChange}
-            name="description"
-          />
-          <input
-            type="text"
-            placeholder="Amount"
-            value={this.state.amount}
-            onChange={this.onElementChange}
-            name="amount"
-          />
-          <SingleDatePicker
-            date={this.state.createdAt}
-            onDateChange={this.onCreatedAtChanged}
-            focused={this.state.createdAtFocused}
-            onFocusChange={this.onCreatedAtFocused}
-            numberOfMonths={1}
-            isOutsideRange={() => false}
-          />
-          <textarea
-            placeholder="Notes"
-            value={this.state.note}
-            name="note"
-            onChange={this.onElementChange}
-          />
-          <button>Add Expense</button>
+          <div className="form-group">
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Description"
+              autoFocus
+              value={this.state.description}
+              onChange={this.onElementChange}
+              name="description"
+            />
+          </div>
+          <div className="form-group">
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Amount"
+              value={this.state.amount}
+              onChange={this.onElementChange}
+              name="amount"
+            />
+          </div>
+          <div className="form-group">
+            <SingleDatePicker
+              className="form-control"
+              date={this.state.createdAt}
+              onDateChange={this.onCreatedAtChanged}
+              focused={this.state.createdAtFocused}
+              onFocusChange={this.onCreatedAtFocused}
+              numberOfMonths={1}
+              isOutsideRange={() => false}
+            />
+          </div>
+          <div className="form-group">
+            <textarea
+              className="form-control"
+              placeholder="Notes"
+              value={this.state.note}
+              name="note"
+              rows="5"
+              onChange={this.onElementChange}
+            />
+          </div>
+          <button className="btn btn-primary">Add Expense</button>
         </form>
       </div>
     );
