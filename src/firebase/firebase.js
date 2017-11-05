@@ -10,7 +10,10 @@ const config = {
 };
 firebase.initializeApp(config);
 
-const databaseRef = firebase.database().ref("udemy-expensify");
+const databaseRef =
+  process.env.NODE_ENV === "test"
+    ? firebase.database().ref("udemy-expensify-test")
+    : firebase.database().ref("udemy-expensify");
 
 const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 

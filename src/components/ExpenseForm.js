@@ -2,16 +2,15 @@ import React from "react";
 import moment from "moment";
 import "react-dates/initialize";
 import { SingleDatePicker } from "react-dates";
-import "react-dates/lib/css/_datepicker.css";
 
-class ExpenseForm extends React.Component {
+export class ExpenseForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       description: props.expense ? props.expense.description : "",
       note: props.expense ? props.expense.note : "",
       amount: props.expense ? (props.expense.amount / 100.0).toString() : "",
-      createdAt: moment(props.expense ? props.expense.createdAt : new Date()),
+      createdAt: props.expense ? moment(props.expense.createdAt) : moment(),
       createdAtFocused: false,
       error: ""
     };
@@ -79,7 +78,6 @@ class ExpenseForm extends React.Component {
           </div>
           <div className="form-group">
             <SingleDatePicker
-              className="form-control"
               date={this.state.createdAt}
               onDateChange={this.onCreatedAtChanged}
               focused={this.state.createdAtFocused}

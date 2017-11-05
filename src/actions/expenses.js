@@ -17,7 +17,7 @@ export const startAddExpense = (expenseData = {}) => {
     } = expenseData;
     const uid = getState().auth.uid;
     const expense = { description, note, amount, createdAt };
-    databaseRef
+    return databaseRef
       .child(`users/${uid}/expenses`)
       .push(expense)
       .then(ref => {

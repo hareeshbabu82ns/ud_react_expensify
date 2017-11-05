@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render ExpenseListItem 1`] = `
+<div
+  className="list-group-item flex-column align-items-start"
+>
+  <div
+    className="d-flex w-100 justify-content-between"
+  >
+    <Link
+      className="mb-1"
+      replace={false}
+      to="/edit/2"
+    >
+      Electricity
+    </Link>
+    <small>
+      $50.00
+       -
+       
+      Dec 31st, 1969
+    </small>
+  </div>
+  <p
+    className="mb-1"
+  />
+</div>
+`;

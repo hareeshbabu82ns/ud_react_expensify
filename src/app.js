@@ -14,6 +14,7 @@ import { login, logout } from "./actions/auth";
 import getVisibleExpenses from "./selectors/expenses";
 import { firebase } from "./firebase/firebase";
 
+import "react-dates/lib/css/_datepicker.css";
 import "normalize.css/normalize.css";
 import "./styles/styles.scss";
 

@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 
 import { startLogout } from "../actions/auth";
 
-const Header = props => (
+export const Header = props => (
   <header>
     <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
       <a className="navbar-brand" href="#">
@@ -41,7 +41,7 @@ const Header = props => (
         <form className="form-inline my-2 my-lg-0">
           <button
             className="btn btn-outline-success my-2 my-sm-0"
-            onClick={() => props.dispatch(startLogout())}
+            onClick={props.startLogout}
           >
             Logout
           </button>
@@ -50,5 +50,11 @@ const Header = props => (
     </nav>
   </header>
 );
-
-export default connect()(Header);
+const mapDispatchToProps = dispatch => {
+  return {
+    startLogout: () => {
+      dispatch(startLogout());
+    }
+  };
+};
+export default connect(undefined, mapDispatchToProps)(Header);

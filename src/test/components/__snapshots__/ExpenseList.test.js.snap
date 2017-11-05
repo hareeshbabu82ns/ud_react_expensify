@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render ExpensesList with data 1`] = `
+<div>
+  <Connect(ExpenseListHeader) />
+  <Connect(ExpenseListFilters) />
+  <h4>
+    Expense List
+  </h4>
+  <div
+    className="list-group"
+  >
+    <ExpenseListItem
+      amount={10000}
+      createdAt={-345600000}
+      description="Rent"
+      id="1"
+      key="1"
+      note=""
+    />
+    <ExpenseListItem
+      amount={5000}
+      createdAt={0}
+      description="Electricity"
+      id="2"
+      key="2"
+      note=""
+    />
+    <ExpenseListItem
+      amount={20000}
+      createdAt={345600000}
+      description="Gas"
+      id="3"
+      key="3"
+      note=""
+    />
+  </div>
+</div>
+`;

@@ -6,7 +6,7 @@ import ExpenseListFilters from "./ExpenseListFilters";
 import ExpenseListHeader from "./ExpenseListHeader";
 import filterExpenses from "../selectors/expenses";
 
-const ExpenseList = props => (
+export const ExpenseList = props => (
   <div>
     <ExpenseListHeader />
     <ExpenseListFilters />
